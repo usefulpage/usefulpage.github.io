@@ -1,22 +1,193 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>404 | VitePress</title>
-    <meta name="description" content="Not Found">
-    <meta name="generator" content="VitePress v1.6.4">
-    <link rel="preload stylesheet" href="/assets/style.DFTx90Kk.css" as="style">
-    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
-    
-    <script type="module" src="/assets/app.BCnSjrHT.js"></script>
-    <link rel="preload" href="/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
-    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
-    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script>window.__VP_HASH_MAP__=JSON.parse("{\"en_index.md\":\"D2m-ibeb\",\"index.md\":\"UxnFZxnz\",\"ru_index.md\":\"BzFTRsGm\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"VitePress\",\"description\":\"A VitePress site\",\"base\":\"/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{},\"locales\":{},\"scrollOffset\":134,\"cleanUrls\":false}");</script>
-    
-  </body>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена / Page not found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            flex: 1;
+            text-align: center;
+        }
+        header {
+            background: #1e1e2e;
+            border-bottom: 1px solid #333;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+        }
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #6c63ff;
+            text-decoration: none;
+        }
+        .lang-select {
+            background: #2a2a3a;
+            border: 1px solid #444;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #6c63ff;
+            margin: 2rem 0 1rem;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .error-description {
+            color: #aaa;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        .home-link {
+            display: inline-block;
+            background: #6c63ff;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .home-link:hover {
+            background: #5548cc;
+        }
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid #222;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        footer a {
+            color: #6c63ff;
+            text-decoration: none;
+        }
+        @media (max-width: 640px) {
+            .error-code { font-size: 4rem; }
+            .error-message { font-size: 1.2rem; }
+            .header-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <a href="/" class="logo">⚙️ Useful Tools</a>
+        <select id="languageSwitcher" class="lang-select">
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="zh">🇨🇳 中文</option>
+            <option value="uk">🇺🇦 Українська</option>
+        </select>
+    </div>
+</header>
+
+<main class="container" id="content">
+    <!-- контент будет подставляться через JS -->
+</main>
+
+<footer>
+    <p>© 2026 Useful Tools. <span id="footer-text">Документация и справочные материалы</span> | <a href="https://useful.page.gd">useful.page.gd</a></p>
+</footer>
+
+<script>
+    const translations = {
+        ru: {
+            error_code: "404",
+            error_message: "Страница не найдена",
+            error_desc: "Извините, запрашиваемая страница не существует или была перемещена.",
+            home_link: "Вернуться на главную",
+            footer_text: "Документация и справочные материалы"
+        },
+        en: {
+            error_code: "404",
+            error_message: "Page not found",
+            error_desc: "Sorry, the page you are looking for does not exist or has been moved.",
+            home_link: "Back to home",
+            footer_text: "Documentation and reference"
+        },
+        zh: {
+            error_code: "404",
+            error_message: "页面未找到",
+            error_desc: "抱歉，您正在寻找的页面不存在或已被移动。",
+            home_link: "返回首页",
+            footer_text: "文档和参考资料"
+        },
+        uk: {
+            error_code: "404",
+            error_message: "Сторінку не знайдено",
+            error_desc: "Вибачте, запитувана сторінка не існує або була переміщена.",
+            home_link: "Повернутися на головну",
+            footer_text: "Документація та довідкові матеріали"
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function setLanguage(lang) {
+        if (!translations[lang]) return;
+        currentLang = lang;
+        const t = translations[lang];
+        document.documentElement.lang = lang;
+        document.title = t.error_message + " - Useful Tools";
+        document.getElementById('content').innerHTML = `
+            <div class="error-code">${t.error_code}</div>
+            <div class="error-message">${t.error_message}</div>
+            <div class="error-description">${t.error_desc}</div>
+            <a href="/" class="home-link">${t.home_link}</a>
+        `;
+        document.getElementById('footer-text').innerText = t.footer_text;
+        localStorage.setItem('doc_lang', lang);
+        const selector = document.getElementById('languageSwitcher');
+        if (selector) selector.value = lang;
+    }
+
+    // Загрузка сохранённого языка
+    const savedLang = localStorage.getItem('doc_lang') || 'ru';
+    setLanguage(savedLang);
+
+    // Обработчик переключения
+    document.getElementById('languageSwitcher').addEventListener('change', (e) => {
+        setLanguage(e.target.value);
+    });
+</script>
+</body>
 </html>
