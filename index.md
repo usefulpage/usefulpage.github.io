@@ -2,13 +2,13 @@
 layout: home
 hero:
   name: "Useful Tools"
-  text: "Документация"
-  tagline: "Генераторы, калькуляторы, игры и инструменты для Minecraft"
+  text: "Documentation"
+  tagline: "Generators, calculators, games and Minecraft tools"
   actions:
     - theme: brand
-      text: Начать чтение
+      text: Русский
       link: /ru/
     - theme: alt
-      text: Перейти на сайт
-      link: https://useful.page.gd
+      text: English
+      link: /en/
 ---
